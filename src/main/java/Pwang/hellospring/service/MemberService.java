@@ -1,24 +1,28 @@
 package Pwang.hellospring.service;
 
 import Pwang.hellospring.domain.Member;
+import Pwang.hellospring.repository.JdbcMemberRepository;
 import Pwang.hellospring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 //@Service
 public class MemberService {
 
-    private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository ;
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
+
         this.memberRepository = memberRepository;
     }
 
-    /**
+    /**`
      * 회원 가입
      */
     public Long join(Member member){
@@ -41,7 +45,7 @@ public class MemberService {
         return memberRepository.findAll();
     }
     public Optional<Member> findOne(Long memberID){
-        return memberRepository.findByID(memberID);
+        return memberRepository.findByid(memberID);
     }
 
 }
