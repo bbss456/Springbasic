@@ -20,7 +20,6 @@ public class TimeTraceAop {
            long finish = System.currentTimeMillis();
            long timMs = finish - start;
            System.out.println("END : "+ joinPoint.toLongString() + " " +timMs + "Ms");
-
        }
     }
 }
